@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>record-save-in-git</title>
+</head>
+<body>
+    <div id="record"></div>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            function loadTable(){
+                $.ajax({
+                    url : "https://jsonplaceholder.typicode.com/posts/1",
+                    type : "GET",
+                    success : function(data){
+                        $("#record").append("<p>"+ data.title + "</p><br>");
+                        /*$.each(data,function(key,val){
+                            $("#record").append("<p>"+ val.title + "</p><br>");
+                        });*/
+                    }
+                });
+            }
+
+            loadTable();
+        });
+    </script>
+</body>
+</html>
